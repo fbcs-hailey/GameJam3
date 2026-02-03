@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://oqg7syqcxp3g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m57jh"]
+albedo_color = Color(0.38421947, 0.32734427, 0.22124857, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x0eqs"]
+size = Vector2(0.7, 1.5)
+
+[node name="door" type="Node3D" unique_id=1334904856]
+
+[node name="frame" type="CSGBox3D" parent="." unique_id=1065674671]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.2110679, 0)
+size = Vector3(0.7, 0.2, 0.1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="frame" unique_id=635069220]
+transform = Transform3D(-4.371139e-08, -1.0000001, 0, 0.9999999, -4.371139e-08, 0, 0, 0, 1, 0.32897782, -0.55453146, 0)
+size = Vector3(1.299707, 0.2, 0.1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="frame" unique_id=573875233]
+transform = Transform3D(-4.371139e-08, -1.0000001, 0, 0.9999999, -4.371139e-08, 0, 0, 0, 1, -0.32265854, -0.55453146, 0)
+size = Vector3(1.299707, 0.2, 0.1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1849231112]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0.42493498, 0)
+material_override = SubResource("StandardMaterial3D_m57jh")
+mesh = SubResource("PlaneMesh_x0eqs")
