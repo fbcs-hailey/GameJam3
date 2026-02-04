@@ -1,15 +1,32 @@
-[gd_scene format=3 uid="uid://byque4w54oowj"]
+[gd_scene format=3 uid="uid://bwmnef6ajguoa"]
 
-[sub_resource type="GDScript" id="GDScript_pjrb6"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kqu6x"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_oul6g"]
+sky_material = SubResource("ProceduralSkyMaterial_kqu6x")
+
+[sub_resource type="Environment" id="Environment_rkbax"]
+background_mode = 2
+sky = SubResource("Sky_oul6g")
+tonemap_mode = 2
+
+[sub_resource type="GDScript" id="GDScript_kqu6x"]
 script/source = "extends CharacterBody3D
 
 
-const SPEED = 2.0
-const JUMP_VELOCITY = 2.5
+const SPEED = 5.0
+const JUMP_VELOCITY = 4.5
+var sens=0.01
+@onready var pivot: Node3D = $Pivot
+@onready var camera: Camera3D = $Pivot/Camera3D
 
-@onready var camera: Camera3D = $Camera3D
-
-@export_range(0.0,1) var speed_rotate:=0.05
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		pivot.rotate_y(-event.relative.x*sens)
+		camera.rotate_x(-event.relative.y*sens)
+		camera.rotation.x=clamp(camera.rotation.x,deg_to_rad(-40),deg_to_rad(60))
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -23,51 +40,45 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector(\"left\", \"right\", \"up\", \"down\")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction := (pivot.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-	move_and_slide()
-	
 
-func _input(event: InputEvent) -> void:
-	if event.is_action(\"left_rotate\"):
-		rotation.y+=speed_rotate
-	elif event.is_action(\"right_rotate\"):
-		rotation.y-=speed_rotate
-	elif event.is_action(\"up_rotate\"):
-		rotation.x+=speed_rotate
-	elif event.is_action(\"down_rotate\"):
-		rotation.x-=speed_rotate
-	if event.is_action('zoom_in'):
-		camera.fov-=.7
-	if event.is_action('zoom_out'):
-		camera.fov+=.7
+	move_and_slide()
 "
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_xwkvk"]
-radius = 0.1
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qjkh3"]
+radius = 0.2
 height = 1.0
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c651c"]
-radius = 0.1
-height = 0.5
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g6k8r"]
+points = PackedVector3Array(0.19062224, 0.34009486, 0.042739816, -0.19313467, -0.33892325, -0.031024385, -0.17728926, -0.35147852, -0.07477471, -0.16398045, 0.3839041, -0.075381875, -0.060095288, 0.32193008, 0.1886475, 0.11673036, -0.3698024, 0.14631918, 0.085944824, -0.33564782, -0.17668864, 0.02789765, 0.33947405, -0.19344595, -0.1475578, -0.33578333, 0.12978245, 0.1886475, -0.32193008, -0.060095288, 0.028852293, -0.48765373, -0.06250522, -0.08915945, -0.3211656, -0.17676876, -0.19117768, 0.30630997, 0.05672253, 0.028905036, 0.48849866, 0.059436202, 0.1444927, 0.33603516, -0.13305555, 0.09939704, 0.31742695, 0.17155492, -0.0457956, -0.33918348, 0.19010715, -0.11690585, 0.31715924, -0.16016407, -0.061857313, -0.4673546, 0.08883693, 0.18682446, -0.28987557, 0.07085607, 0.058613796, 0.46681997, -0.09190807, -0.12209275, 0.4519685, 0.0435783, 0.11946611, -0.45402357, 0.043783665, 0.057189006, -0.3234063, 0.18951982, -0.047076598, 0.4704196, -0.092604525, -0.19079734, 0.2911038, -0.059780125, -0.076613456, -0.45031568, -0.1066392, -0.14755845, 0.33578485, 0.12978305, 0.19010715, 0.33918348, -0.0457956, -0.031024607, -0.3389258, -0.1931361, 0.1590711, 0.3359655, 0.11524504, 0.04273922, 0.3400903, 0.19061966)
 
-[node name="player" type="CharacterBody3D" unique_id=737716241]
-script = SubResource("GDScript_pjrb6")
-speed_rotate = 0.035
+[node name="player" type="Node3D" unique_id=586143396]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=429277886]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6219428, 1.3265874)
-visible = false
-mesh = SubResource("CapsuleMesh_xwkvk")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=399355537]
+environment = SubResource("Environment_rkbax")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=783323228]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50356245, 1.3265874)
-shape = SubResource("CapsuleShape3D_c651c")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1385151255]
+transform = Transform3D(-0.97437006, 0.22494796, -0.0011778352, 0, 0.005235962, 0.9999863, 0.22495104, 0.9743567, -0.0051017646, 0, 0, 0)
+shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=518451547]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9379327, 1.2504202)
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1240198804]
+script = SubResource("GDScript_kqu6x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=72212359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CapsuleMesh_qjkh3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=555660934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("ConvexPolygonShape3D_g6k8r")
+
+[node name="Pivot" type="Node3D" parent="CharacterBody3D" unique_id=1037191758]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7588198, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Pivot" unique_id=80461561]

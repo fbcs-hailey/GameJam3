@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://ekvt1amehlo"]
 
-[ext_resource type="PackedScene" uid="uid://byque4w54oowj" path="res://player/player.tscn" id="1_53q0u"]
-[ext_resource type="PackedScene" uid="uid://c4slb7dyrrh8u" path="res://home/basement.tscn" id="2_pjrb6"]
+[ext_resource type="PackedScene" uid="uid://bwmnef6ajguoa" path="res://player/player.tscn" id="1_53q0u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4hihk"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -18,9 +17,6 @@ tonemap_mode = 2
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hihk"]
 albedo_color = Color(0.12211334, 0.27296996, 0.5204823, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53q0u"]
-albedo_color = Color(0.41600475, 0.6007594, 0.88724643, 1)
-
 [node name="Main" type="Node3D" unique_id=1392634343]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=379042407]
@@ -31,17 +27,8 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="floor" type="CSGBox3D" parent="." unique_id=1886478138]
-visible = false
 use_collision = true
 size = Vector3(10, 0.25, 10)
 material = SubResource("StandardMaterial3D_4hihk")
 
-[node name="platform" type="CSGBox3D" parent="floor" unique_id=709789248]
-visible = false
-use_collision = true
-size = Vector3(3, 1, 1)
-material = SubResource("StandardMaterial3D_53q0u")
-
-[node name="player" parent="." unique_id=737716241 instance=ExtResource("1_53q0u")]
-
-[node name="basement" parent="." unique_id=2052776141 instance=ExtResource("2_pjrb6")]
+[node name="player" parent="." unique_id=586143396 instance=ExtResource("1_53q0u")]
