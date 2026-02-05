@@ -49,4 +49,4 @@ use_collision = true
 size = Vector3(0.2, 3, 5)
 
 [node name="paintings" parent="." unique_id=1182266868 instance=ExtResource("2_pjrb6")]
-transform = Transform3D(-0.0029845631, 0, -0.9999955, 0, 1, 0, 0.9999955, 0, -0.0029845631, -2.5078473, 1.1170385, -1.9174924)
+transform = Transform3D(-0.0029845631, 0, -0.9999955, 0, 1, 0, 0.9999955, 0, -0.0029845631, -2.5078473, 1.1170385, 0.040917635)

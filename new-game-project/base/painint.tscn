@@ -34,6 +34,7 @@ mesh = SubResource("BoxMesh_pjrb6")
 script = SubResource("GDScript_on3qq")
 
 [node name="RayCast" type="RayCast3D" parent="." unique_id=518752028]
+transform = Transform3D(1.0000002, 0, 2.3283064e-10, 0, 1, 0, -2.3283064e-10, 0, 1.0000002, -0.029366693, 0, 8.764703e-05)
 target_position = Vector3(1.5, -0.5, 0)
 
 [node name="lable" type="Label3D" parent="." unique_id=508280208]
