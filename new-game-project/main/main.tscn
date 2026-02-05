@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ekvt1amehlo"]
 
 [ext_resource type="PackedScene" uid="uid://bwmnef6ajguoa" path="res://player/player.tscn" id="1_53q0u"]
+[ext_resource type="PackedScene" uid="uid://bphbtc44u6vdm" path="res://base/painint.tscn" id="2_pjrb6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4hihk"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,7 +16,7 @@ sky = SubResource("Sky_53q0u")
 tonemap_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hihk"]
-albedo_color = Color(0.12211334, 0.27296996, 0.5204823, 1)
+albedo_color = Color(0.07345354, 0.13875389, 0.013385968, 1)
 
 [node name="Main" type="Node3D" unique_id=1392634343]
 
@@ -27,8 +28,25 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="floor" type="CSGBox3D" parent="." unique_id=1886478138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.054527283, -0.1, -0.8581543)
 use_collision = true
-size = Vector3(10, 0.25, 10)
+size = Vector3(21.616562, 0.25, 11.716309)
 material = SubResource("StandardMaterial3D_4hihk")
 
 [node name="player" parent="." unique_id=586143396 instance=ExtResource("1_53q0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014505386, 0.09343839, 4.630473)
+
+[node name="placeholderHouse" type="Node3D" parent="." unique_id=192214988]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="placeholderHouse" unique_id=1304513817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.116048, 1.5460339, 0)
+use_collision = true
+size = Vector3(0.2, 3, 5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="placeholderHouse" unique_id=875049588]
+transform = Transform3D(5.7692003e-05, 0, 1, 0, 1, 0, -1, 0, 5.7692003e-05, -2.6873255, 1.5460339, -2.3215635)
+use_collision = true
+size = Vector3(0.2, 3, 5)
+
+[node name="paintings" parent="." unique_id=1182266868 instance=ExtResource("2_pjrb6")]
+transform = Transform3D(-0.0029845631, 0, -0.9999955, 0, 1, 0, 0.9999955, 0, -0.0029845631, -2.5078473, 1.1170385, -1.9174924)

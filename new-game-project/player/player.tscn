@@ -71,10 +71,6 @@ points = PackedVector3Array(0.19062224, 0.34009486, 0.042739816, -0.19313467, -0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=399355537]
 environment = SubResource("Environment_rkbax")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1385151255]
-transform = Transform3D(-0.97437006, 0.22494796, -0.0011778352, 0, 0.005235962, 0.9999863, 0.22495104, 0.9743567, -0.0051017646, 0, 0, 0)
-shadow_enabled = true
-
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1240198804]
 script = SubResource("GDScript_kqu6x")
 
