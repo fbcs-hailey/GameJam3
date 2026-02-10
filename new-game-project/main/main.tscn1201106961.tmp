@@ -7,8 +7,7 @@
 [sub_resource type="GDScript" id="GDScript_c651c"]
 resource_name = "Main"
 script/source = "extends Node3D
-@onready var keys=get_tree().get_node_in_group('key')
-
+@onready var key:=get_tree().get_first_node_in_group('key')
 @onready var paintings: MeshInstance3D = $paintings
 
 # Called when the node enters the scene tree for the first time.
@@ -17,8 +16,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(keys)
-	
+	if key.collected:
+		paintings.can_get_clue=true
 "
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4hihk"]
@@ -67,21 +66,15 @@ transform = Transform3D(5.7692003e-05, 0, 1, 0, 1, 0, -1, 0, 5.7692003e-05, -2.6
 use_collision = true
 size = Vector3(0.2, 3, 5)
 
-[node name="paintings" parent="." unique_id=1182266868 node_paths=PackedStringArray("right_key") instance=ExtResource("2_pjrb6")]
+[node name="paintings" parent="." unique_id=1182266868 groups=["paintings"] instance=ExtResource("2_pjrb6")]
 transform = Transform3D(-0.0029845631, 0, -0.9999955, 0, 1, 0, 0.9999955, 0, -0.0029845631, -2.5078473, 1.1170385, -2.2142508)
-right_key = NodePath("../key2")
-text = "Painting1"
+corralating_key = null
 
-[node name="key2" parent="." unique_id=1108435302 instance=ExtResource("3_xwkvk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6479383, 0.9308474, 0)
+[node name="key" parent="." unique_id=1108435302 instance=ExtResource("3_xwkvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9308474, 0)
 
-[node name="paintings2" parent="." unique_id=171464948 node_paths=PackedStringArray("right_key") instance=ExtResource("2_pjrb6")]
+[node name="paintings2" parent="." unique_id=171464948 instance=ExtResource("2_pjrb6")]
 transform = Transform3D(-0.0029845631, 0, -0.9999955, 0, 1, 0, 0.9999955, 0, -0.0029845631, -3.7359886, 1.1689472, -2.1427963)
-right_key = NodePath("../key")
-text = "Painting2"
-cor_num = 1
-
-[node name="key" parent="." unique_id=340722582 instance=ExtResource("3_xwkvk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2773743, 0.9308474, 0)
+corralating_key = null
 
 [connection signal="player_in" from="paintings" to="paintings" method="_on_player_in"]

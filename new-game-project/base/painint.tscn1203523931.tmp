@@ -11,9 +11,8 @@ script/source = "extends MeshInstance3D
 
 signal player_in
 
-@export var right_key:MeshInstance3D
-@export var text:String
-@export var cor_num: int
+@export var corralating_key:key
+
 @onready var ray_cast: RayCast3D = $RayCast
 @onready var lable: Label3D = $lable
 @onready var can_get_clue=false
@@ -21,7 +20,7 @@ var collide=false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	lable.text=text
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -31,13 +30,17 @@ func _process(delta: float) -> void:
 
 func _on_player_in() -> void:
 	lable.visible=true
+
+func get_val():
+	!can_get_clue
 "
 
-[node name="paintings" type="MeshInstance3D" unique_id=1182266868 groups=["paintings"]]
+[node name="paintings" type="MeshInstance3D" unique_id=1182266868]
 transform = Transform3D(-0.0029845631, 0, -0.9999955, 0, 1, 0, 0.9999955, 0, -0.0029845631, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_53q0u")
 mesh = SubResource("BoxMesh_pjrb6")
 script = SubResource("GDScript_on3qq")
+corralating_key = null
 
 [node name="RayCast" type="RayCast3D" parent="." unique_id=518752028]
 transform = Transform3D(1.0000002, 0, 2.3283064e-10, 0, 1, 0, -2.3283064e-10, 0, 1.0000002, -0.029366693, 0, 8.764703e-05)
