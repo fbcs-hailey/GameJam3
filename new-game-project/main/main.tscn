@@ -81,10 +81,9 @@ size = Vector3(35.535244, 0.25, 27.115356)
 material = SubResource("StandardMaterial3D_4hihk")
 
 [node name="player" parent="." unique_id=586143396 instance=ExtResource("1_53q0u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.445724, 0.09343839, 10.497322)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.445724, 0.09343839, 8.975195)
 
 [node name="placeholderHouse" type="Node3D" parent="." unique_id=192214988]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.884258)
 
 [node name="walls" type="Node3D" parent="placeholderHouse" unique_id=1463437578]
 
@@ -107,15 +106,15 @@ size = Vector3(0.2, 3, 13.850342)
 material = SubResource("StandardMaterial3D_c651c")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="placeholderHouse/walls" unique_id=875049588]
-transform = Transform3D(0.0017193855, 0.0012416668, 0.99999774, 0.0005516871, 0.99999905, -0.0012426251, -0.99999833, 0.00055384054, 0.001718693, -4.8534193, 3.9619627, -6.0673943)
+transform = Transform3D(0.0017193855, 0.0012416668, 0.99999774, 0.0005516871, 0.99999905, -0.0012426251, -0.99999833, 0.00055384054, 0.001718693, -4.5902176, 3.9616356, -6.0669417)
 use_collision = true
-size = Vector3(0.2, 7.8165283, 10.052809)
+size = Vector3(0.2, 7.8165283, 9.526404)
 material = SubResource("StandardMaterial3D_3wy1v")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="placeholderHouse/walls" unique_id=2108308098]
-transform = Transform3D(0.0017193855, 0.0012416668, 0.99999774, 0.0005516871, 0.99999905, -0.0012426251, -0.99999833, 0.00055384054, 0.001718693, -16.451519, 3.9599102, -6.064555)
+transform = Transform3D(0.0017193855, 0.0012416668, 0.99999774, 0.0005516871, 0.99999905, -0.0012426251, -0.99999833, 0.00055384054, 0.001718693, -14.470819, 3.957449, -2.3153064)
 use_collision = true
-size = Vector3(0.2, 7.8165283, 6.7490606)
+size = Vector3(0.2, 7.8165283, 10.710468)
 material = SubResource("StandardMaterial3D_3wy1v")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="placeholderHouse/walls" unique_id=276519319]
@@ -128,6 +127,12 @@ material = SubResource("StandardMaterial3D_3wy1v")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25210667, 3.963554, -4.637347)
 use_collision = true
 size = Vector3(0.2, 7.8165283, 2.973442)
+material = SubResource("StandardMaterial3D_3wy1v")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="placeholderHouse/walls" unique_id=1924848887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.17027, 3.963554, -4.162507)
+use_collision = true
+size = Vector3(0.2, 7.8165283, 3.9231224)
 material = SubResource("StandardMaterial3D_3wy1v")
 
 [node name="bottom walls" type="Node3D" parent="placeholderHouse" unique_id=201139845]
@@ -150,21 +155,27 @@ use_collision = true
 size = Vector3(0.1, 3, 0.68652344)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="placeholderHouse/bottom walls" unique_id=818216946]
-transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -8.510899, 1.6012114, 6.727541)
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -7.5055275, 1.6012114, 6.727541)
 material_override = SubResource("StandardMaterial3D_grrlh")
 use_collision = true
-size = Vector3(0.1, 3, 6.680664)
+size = Vector3(0.1, 3, 4.669922)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="placeholderHouse/bottom walls" unique_id=1214426744]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -9.103034, 2.8135529, -0.69422567)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -6.6251526, 2.8135529, -0.69422567)
 material_override = SubResource("StandardMaterial3D_grrlh")
 use_collision = true
 size = Vector3(0.1, 5.4246826, 10.50647)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="placeholderHouse/bottom walls" unique_id=642762775]
-transform = Transform3D(1, 0, 0, 0, 0.99993956, -0.010995353, 0, 0.010995353, 0.99993956, -4.3280954, 2.3942885, 4.3719273)
+[node name="CSGBox3D15" type="CSGBox3D" parent="placeholderHouse/bottom walls" unique_id=2110383593]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -9.118796, 3.6817737, 0.7163061)
+material_override = SubResource("StandardMaterial3D_grrlh")
 use_collision = true
-size = Vector3(9.195831, 4.754184, 0.18055725)
+size = Vector3(0.1, 7.215393, 6.6907043)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="placeholderHouse/bottom walls" unique_id=642762775]
+transform = Transform3D(1, 0, 0, 0, 0.99993956, -0.010995353, 0, 0.010995353, 0.99993956, -4.4436235, 2.909752, 4.2092614)
+use_collision = true
+size = Vector3(9.427, 5.785, 0.6)
 material = SubResource("StandardMaterial3D_0i4oc")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="placeholderHouse/bottom walls" unique_id=911527206]
@@ -192,21 +203,21 @@ size = Vector3(0.2, 3, 4.590332)
 material = SubResource("StandardMaterial3D_xwkvk")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="placeholderHouse/bottom walls" unique_id=503323315]
-transform = Transform3D(-5.23301e-08, -8.072878e-09, 0.99999976, -0.7809101, 0.6246432, -3.5822445e-08, -0.624643, -0.78091025, -3.899184e-08, -10.197294, 1.7309024, 2.2758942)
+transform = Transform3D(-5.23301e-08, -8.072878e-09, 0.99999976, -0.7809101, 0.6246432, -3.5822445e-08, -0.624643, -0.78091025, -3.899184e-08, -10.151786, 1.7463658, 2.2565625)
 use_collision = true
-size = Vector3(0.1, 5.8707047, 2.2080078)
+size = Vector3(0.1, 5.9202156, 1.9732666)
 material = SubResource("StandardMaterial3D_bsumw")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="placeholderHouse/bottom walls" unique_id=1259937436]
-transform = Transform3D(-4.3711374e-08, -1, 7.1054274e-15, 0.99999976, -4.3711395e-08, 1.3967833e-15, 3.1011708e-15, 0, 0.9999999, -11.2824745, 3.4856236, -1.1435606)
+transform = Transform3D(-4.3711374e-08, -1, 7.1054274e-15, 0.99999976, -4.3711395e-08, 1.3967833e-15, 3.1011708e-15, 0, 0.9999999, -11.168223, 3.5749304, -1.1435606)
 use_collision = true
 size = Vector3(0.1, 4.384327, 2.178711)
 material = SubResource("StandardMaterial3D_bsumw")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="placeholderHouse/bottom walls" unique_id=1867150190]
-transform = Transform3D(-2.7330223e-08, -3.41137e-08, -0.99999976, -0.867149, 0.49804896, 6.7090795e-09, 0.49804893, 0.86714906, -4.319344e-08, -12.331774, 4.7490873, 2.0015876)
+transform = Transform3D(-2.7330223e-08, -3.41137e-08, -0.99999976, -0.867149, 0.49804896, 6.7090795e-09, 0.49804893, 0.86714906, -4.319344e-08, -12.246672, 4.710077, 1.9336668)
 use_collision = true
-size = Vector3(0.1, 4.9446297, 2.2080078)
+size = Vector3(0.1, 4.7879763, 2.2080078)
 material = SubResource("StandardMaterial3D_bsumw")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="placeholderHouse/bottom walls" unique_id=591525113]
@@ -222,9 +233,9 @@ size = Vector3(19.944725, 7.129325, 0.18055725)
 material = SubResource("StandardMaterial3D_0i4oc")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="placeholderHouse" unique_id=388699139]
-transform = Transform3D(-4.3681997e-08, 0.99932766, -0.03666119, 1.6025096e-09, -0.03666119, -0.9993278, -0.9999999, -4.371138e-08, 1.9106855e-15, -16.518064, 5.822936, -1.1500723)
+transform = Transform3D(-4.3711346e-08, 0.9999993, 0.0012042336, -5.2640562e-11, 0.0012042336, -0.9999994, -0.9999999, -4.371138e-08, 1.9352606e-15, -16.518, 5.822, 0.918)
 use_collision = true
-size = Vector3(10.248653, 6.4192333, 0.18055725)
+size = Vector3(6.260574, 6.4192333, 0.18055725)
 material = SubResource("StandardMaterial3D_0i4oc")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="placeholderHouse" unique_id=1059686033]

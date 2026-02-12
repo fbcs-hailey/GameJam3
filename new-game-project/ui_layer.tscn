@@ -5,7 +5,7 @@ script/source = "extends Control
 
 
 func _on_start_pressed() -> void:
-	pass
+	get_tree().change_scene_to_file(\"res://main/main.tscn\")
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_pxq32"]
