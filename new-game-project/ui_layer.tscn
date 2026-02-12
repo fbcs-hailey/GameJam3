@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://b7mb1crxsgkig"]
+
+[sub_resource type="GDScript" id="GDScript_mow34"]
+script/source = "extends Control
+
+
+func _on_start_pressed() -> void:
+	pass
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_pxq32"]
+font_size = 64
+
+[node name="UI Layer" type="Control" unique_id=347532551]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = SubResource("GDScript_mow34")
+
+[node name="Title" type="Label" parent="." unique_id=719261289]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.0
+offset_top = -206.0
+offset_right = 186.0
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PlaceHolder"
+label_settings = SubResource("LabelSettings_pxq32")
+
+[node name="Start" type="Button" parent="Title" unique_id=695018484]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 88.0
+offset_right = -48.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Start"
+
+[node name="Placeholder" type="Button" parent="Title" unique_id=602837777]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 35.0
+offset_top = 88.0
+offset_right = 137.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Ideas"
+
+[connection signal="pressed" from="Title/Start" to="." method="_on_start_pressed"]
