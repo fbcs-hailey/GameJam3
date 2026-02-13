@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://c8ndpyxibnciy"]
+
+[sub_resource type="GDScript" id="GDScript_uc7wj"]
+script/source = "extends Control
+@onready var c_left: Label = $CLeft
+@onready var c_remaining: Label = $CRemaining
+
+
+func change_left(num:int):
+	c_left.text=\"Clues Left: \"+str(num)
+
+func change_remaining(num:int):
+	c_remaining.text=\"Clues Found: \"+str(num)
+"
+
+[node name="ingameUI" type="Control" unique_id=838026345]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+mouse_force_pass_scroll_events = false
+script = SubResource("GDScript_uc7wj")
+
+[node name="CLeft" type="Label" parent="." unique_id=1770209893]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_right = 36.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Clues Left: "
+vertical_alignment = 1
+
+[node name="CRemaining" type="Label" parent="." unique_id=1346243559]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -47.0
+offset_top = 41.0
+offset_right = 82.0
+offset_bottom = 90.0
+grow_horizontal = 2
+text = "Clues Found: "

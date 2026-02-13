@@ -11,15 +11,7 @@ resource_name = "key"
 script/source = "extends MeshInstance3D
 class_name curr_key
 var collected=false
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+@export var cor_num: int
 
 func _on_Body_enetred(body: Node3D) -> void:
 	collected=true
