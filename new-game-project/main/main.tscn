@@ -7,15 +7,18 @@
 [sub_resource type="GDScript" id="GDScript_c651c"]
 resource_name = "Main"
 script/source = "extends Node3D
+
 @onready var paintings: MeshInstance3D = $paintings
-@onready var keys:=get_tree().get_first_node_in_group('keys')
+@onready var key:=get_tree().get_first_node_in_group('key')
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if key.collected:
+		paintings.can_get_clue=true
 "
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4hihk"]
@@ -81,7 +84,6 @@ size = Vector3(35.535244, 0.25, 27.115356)
 material = SubResource("StandardMaterial3D_4hihk")
 
 [node name="player" parent="." unique_id=586143396 instance=ExtResource("1_53q0u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.445724, 0.09343839, 8.975195)
 
 [node name="placeholderHouse" type="Node3D" parent="." unique_id=192214988]
 
@@ -244,12 +246,18 @@ use_collision = true
 size = Vector3(9.526627, 2.0047941, 0.18055725)
 material = SubResource("StandardMaterial3D_0i4oc")
 
-[node name="paintings" parent="." unique_id=1182266868 node_paths=PackedStringArray("right_key") instance=ExtResource("2_pjrb6")]
+[node name="painting" parent="." unique_id=1182266868 node_paths=PackedStringArray("right_key") groups=["paintings"] instance=ExtResource("2_pjrb6")]
 transform = Transform3D(-0.0029845631, 0, -0.9999955, 0, 1, 0, 0.9999955, 0, -0.0029845631, -2.5078473, 1.1170385, -2.2142508)
-right_key = NodePath("../key2")
+right_key = NodePath("../key")
 text = "Painting1"
 
-[node name="key2" parent="." unique_id=1108435302 instance=ExtResource("3_xwkvk")]
+[node name="painting2" parent="." unique_id=1803629686 node_paths=PackedStringArray("right_key") groups=["paintings"] instance=ExtResource("2_pjrb6")]
+transform = Transform3D(-0.0029845631, 0, -0.9999955, 0, 1, 0, 0.9999955, 0, -0.0029845631, -0.7238184, 1.1170385, -2.2142508)
+right_key = NodePath("../key")
+text = "Painting2"
+
+[node name="key" parent="." unique_id=1108435302 instance=ExtResource("3_xwkvk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6479383, 0.9308474, 0)
 
-[connection signal="player_in" from="paintings" to="paintings" method="_on_player_in"]
+[connection signal="player_in" from="painting" to="painting" method="_on_player_in"]
+[connection signal="player_in" from="painting2" to="painting2" method="_on_player_in"]

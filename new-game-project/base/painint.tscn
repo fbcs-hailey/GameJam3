@@ -33,7 +33,7 @@ func _on_player_in() -> void:
 	lable.visible=true
 "
 
-[node name="paintings" type="MeshInstance3D" unique_id=1182266868 groups=["paintings"]]
+[node name="paintings" type="MeshInstance3D" unique_id=1182266868]
 transform = Transform3D(-0.0029845631, 0, -0.9999955, 0, 1, 0, 0.9999955, 0, -0.0029845631, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_53q0u")
 mesh = SubResource("BoxMesh_pjrb6")
